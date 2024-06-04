@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.btn {
+  cursor: pointer;
+}
+h1 {
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.container .container__fields {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.container__fields input {
+  height: 35px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid rgb(81, 81, 81);
+}
+.container__fields button {
+  padding: 5px 15px;
+}
+ul {
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+li {
+  cursor: pointer;
+  background-color: antiquewhite;
+  padding: 5px 15px;
+}

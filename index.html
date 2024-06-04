@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Todo Application</title>
+  </head>
+  <body>
+    <h1>Your To Do List</h1>
+    <div class="container">
+      <div class="container__fields">
+        <!-- input field -->
+        <input
+          type="text"
+          name="Todo"
+          id="todo-input-field"
+          class="input-field"
+          placeholder="Enter todo."
+        />
+        <!-- button for adding todo item -->
+        <button class="btn-add btn" onclick="{addTodoItem()}" id="add-todo">
+          Add
+        </button>
+      </div>
+
+      <!-- list -->
+      <ul id="todo-list" class="list"></ul>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>
