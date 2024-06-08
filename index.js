@@ -40,8 +40,10 @@ const refreshTodoList = () => {
     const buttonText = document.createTextNode("X");
     // ? Adding delete event listener
     button.addEventListener("click", () => {
-      const index = usersTodo.indexOf(item);
-      usersTodo.splice(index, 1);
+      if (confirm(`Are you sure you want to delete ${item.title}`)) {
+        const index = usersTodo.indexOf(item);
+        usersTodo.splice(index, 1);
+      }
     });
     button.appendChild(buttonText);
     li.appendChild(button);
