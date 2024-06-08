@@ -33,11 +33,25 @@ const refreshTodoList = () => {
   for (const item of usersTodo) {
     // ? Creating new li tag for each item
     const li = document.createElement("li");
-    li.addEventListener("click", () => {
-      console.log(item.title);
-    });
     // ? displaying title for the li
     li.textContent = item.title;
+    const button = document.createElement("button");
+    button.classList.add("delete_btn");
+    const buttonText = document.createTextNode("X");
+    // ? Adding delete event listener
+    button.addEventListener("click", () => {
+      const index = usersTodo.indexOf(item);
+      usersTodo.splice(index, 1);
+    });
+    button.appendChild(buttonText);
+    li.appendChild(button);
+    li.addEventListener("click", () => {
+      item.completed = !item.completed;
+      refreshTodoList();
+    });
+    if (item.completed) {
+      li.classList.add("completed");
+    }
     // ? adding li tag to its parent element ul
     todoUl.appendChild(li);
   }

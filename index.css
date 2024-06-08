@@ -39,10 +39,23 @@ ul {
 }
 li {
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
   min-width: 250px;
   max-width: 450px;
+  align-items: center;
   overflow-x: auto;
   background-color: antiquewhite;
   padding: 10px 15px;
   border-radius: 8px;
+}
+.completed {
+  border: green 1px solid;
+  background-color: rgba(112, 196, 112, 0.558);
+  text-decoration: line-through;
+  color: rgb(120, 120, 120);
+}
+.delete_btn {
+  padding: 2px 5px;
+  border-radius: 15px;
 }
