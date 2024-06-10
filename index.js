@@ -25,6 +25,7 @@ const addTodoItem = () => {
 
 // ? Function for revalidating and appending new todo items from usersTodo array
 const refreshTodoList = () => {
+  pendingTask();
   // ? Getting ul tag
   const todoUl = document.getElementById("todo-list");
   // ? setting the ul tag empty for appending data
@@ -36,18 +37,22 @@ const refreshTodoList = () => {
     // ? displaying title for the li
     li.textContent = item.title;
     const button = document.createElement("button");
+    const i = document.createElement("i");
+    i.classList.add("fa", "fa-trash-o", "trash");
+    button.appendChild(i);
     button.classList.add("delete_btn");
-    const buttonText = document.createTextNode("X");
     // ? Adding delete event listener
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (confirm(`Are you sure you want to delete ${item.title}`)) {
         const index = usersTodo.indexOf(item);
         usersTodo.splice(index, 1);
+        refreshTodoList();
       }
     });
-    button.appendChild(buttonText);
     li.appendChild(button);
-    li.addEventListener("click", () => {
+    li.addEventListener("click", (e) => {
+      e.stopPropagation();
       item.completed = !item.completed;
       refreshTodoList();
     });
@@ -58,3 +63,17 @@ const refreshTodoList = () => {
     todoUl.appendChild(li);
   }
 };
+
+const pendingTask = () => {
+  const pendingNumElement = document.getElementById("num-pending");
+  const pendingDiv = document.getElementById("pending-button");
+  pendingNumElement.textContent = usersTodo.length;
+  pendingDiv.innerHTML = "";
+  if (usersTodo.length > 0) {
+    const button = document.createElement("button");
+    const buttonText = "Clear All";
+    button.textContent = buttonText;
+    pendingDiv.appendChild(button);
+  }
+};
+pendingTask();

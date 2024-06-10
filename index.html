@@ -4,28 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>Todo Application</title>
   </head>
   <body>
-    <h1>Your To Do List</h1>
-    <div class="container">
-      <div class="container__fields">
-        <!-- input field -->
-        <input
-          type="text"
-          name="Todo"
-          id="todo-input-field"
-          class="input-field"
-          placeholder="Enter todo."
-        />
-        <!-- button for adding todo item -->
-        <button class="btn-add btn" onclick="{addTodoItem()}" id="add-todo">
-          Add
-        </button>
-      </div>
+    <div class="main-container">
+      <h1>Todo App</h1>
+      <div class="container">
+        <div class="container__fields">
+          <!-- input field -->
+          <input
+            type="text"
+            name="Todo"
+            id="todo-input-field"
+            class="input-field"
+            placeholder="Add your new todo"
+          />
+          <!-- button for adding todo item -->
+          <button class="btn-add btn" onclick="{addTodoItem()}" id="add-todo">
+            +
+          </button>
+        </div>
 
-      <!-- list -->
-      <ul id="todo-list" class="list"></ul>
+        <!-- list -->
+        <ul id="todo-list" class="list"></ul>
+      </div>
+      <div class="pending-container" id="pending-div">
+        <p class="pending">
+          You have <span id="num-pending"></span> pending tasks
+        </p>
+        <div class="pending-button-container" id="pending-button"></div>
+      </div>
     </div>
   </body>
   <script src="index.js"></script>
